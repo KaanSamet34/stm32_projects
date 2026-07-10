@@ -1,0 +1,33 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "OpenOCD",
+      "cwd": "${workspaceFolder}",
+      "type": "cortex-debug",
+      "executable": "${command:cmake.launchTargetPath}",
+      "request": "launch",
+      "servertype": "openocd",
+      "serverpath": "/usr/bin/openocd",
+      "configFiles": [
+        "debugConfig.cfg"
+      ],
+      "serverArgs": [
+        "-s",
+        "${env:SCRIPTS_PATH}",
+        "-d3"
+      ],
+      "device": "STM32F103C8T6",
+      "runToEntryPoint": "main",
+      "svdFile": "/home/inthezone/Codes/stm32vsc/util/STM32F103.svd",
+      "showDevDebugOutput": "raw",
+      "liveWatch": {
+        "enabled": true,
+        "samplesPerSecond": 4
+      },
+    }
+  ]
+}
