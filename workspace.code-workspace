@@ -16,6 +16,9 @@
 		},
 		{
 			"path": "timer_led"
+		},
+		{
+			"path": "thriple_timer_led"
 		}
 	],
 	"settings": {
