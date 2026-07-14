@@ -13,6 +13,9 @@
 		},
 		{
 			"path": "rl_traffic_with_interrupt"
+		},
+		{
+			"path": "timer_led"
 		}
 	],
 	"settings": {
