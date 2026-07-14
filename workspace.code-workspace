@@ -10,6 +10,9 @@
 		},
 		{
 			"path": "rl_traffic_light"
+		},
+		{
+			"path": "rl_traffic_with_interrupt"
 		}
 	],
 	"settings": {
