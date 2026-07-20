@@ -31,6 +31,9 @@
 		{
 			"name": "quad_pwm",
 			"path": "quad_pwm"
+		},
+		{
+			"path": "uart_communication"
 		}
 	],
 	"settings": {
