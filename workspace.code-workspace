@@ -9,16 +9,28 @@
 			"path": "register_level_led"
 		},
 		{
+			"name": "rl_traffic_light",
 			"path": "rl_traffic_light"
 		},
 		{
+			"name": "rl_traffic_with_interrupt",
 			"path": "rl_traffic_with_interrupt"
 		},
 		{
+			"name": "timer_led",
 			"path": "timer_led"
 		},
 		{
+			"name": "thriple_timer_led",
 			"path": "thriple_timer_led"
+		},
+		{
+			"name": "pwm",
+			"path": "pwm"
+		},
+		{
+			"name": "quad_pwm",
+			"path": "quad_pwm"
 		}
 	],
 	"settings": {
