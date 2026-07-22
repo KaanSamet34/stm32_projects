@@ -34,6 +34,9 @@
 		},
 		{
 			"path": "uart_communication"
+		},
+		{
+			"path": "motor_driver"
 		}
 	],
 	"settings": {
