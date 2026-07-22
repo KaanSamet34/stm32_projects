@@ -69,7 +69,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-  input_buffer = (uint8_t*) (calloc(sizeof(int) * 1000, 0));
+  input_buffer = (uint8_t*) (calloc(sizeof(uint8_t) * 1000, 0));
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
