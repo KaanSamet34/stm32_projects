@@ -74,7 +74,17 @@ typedef struct {
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define INITIAL_DELAY 0
+#define INITIAL_DELAY 1
+
+#define POTENTIOMETER_MAX_VALUE 4095
+#define POTENTIOMETER_MIN_VALUE 0
+
+#define MOTOR_DELAY_MAX 100
+#define MOTOR_DELAY_MIN INITIAL_DELAY
+
+#define SLOPE                                                                  \
+  1.0 * (MOTOR_DELAY_MAX - MOTOR_DELAY_MIN) /                                  \
+      (POTENTIOMETER_MAX_VALUE - POTENTIOMETER_MIN_VALUE)
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -154,7 +164,8 @@ int main(void) {
     potentiometer_value = read_potentiometer();
     motor.delay = get_delay_time(potentiometer_value);
 
-    step(10, &motor);
+    step(3000, &motor);
+    step(-3000, &motor);
     // Rotate Clockwise endlessly
     /* USER CODE END WHILE */
 
@@ -373,6 +384,8 @@ void step(int32_t step_amount, stepper_motor *motor) {
 
   uint32_t abs_step_count =
       (direction == clockwise) ? step_amount : -step_amount;
+  if (motor->mode == half_step)
+    abs_step_count *= 2;
 
   for (uint32_t i = 0; i < abs_step_count; i++) {
     // Get next state and drive it
@@ -465,23 +478,10 @@ step_state get_next_state(direction direction, stepper_motor *motor) {
   default:
     return LLLL;
   }
-
-  // Should not reach here
 }
-
-#define POTENTIOMETER_MAX_VALUE 4095
-#define POTENTIOMETER_MIN_VALUE 0
-
-#define MOTOR_DELAY_MAX 100
-#define MOTOR_DELAY_MIN 4
-
-#define SLOPE                                                                  \
-  1.0 * (MOTOR_DELAY_MAX - MOTOR_DELAY_MIN) /                                  \
-      (POTENTIOMETER_MAX_VALUE - POTENTIOMETER_MIN_VALUE)
 
 // Map the potentiometer value to a delay of miliseconds between 4 to 100
 uint32_t get_delay_time(uint32_t input) {
-
   return MOTOR_DELAY_MIN + SLOPE * (input - POTENTIOMETER_MIN_VALUE);
 }
 /* USER CODE END 4 */
